@@ -25,7 +25,8 @@
     "test": "mocha"
   },
   "files": [
-    "app"
+    "app",
+    "post"
   ],
   "keywords": [
     "yeoman-generator",
