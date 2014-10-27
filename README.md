@@ -1,4 +1,4 @@
-# generator-jekyll-utils [![Build Status](https://secure.travis-ci.org/HiroAgustin/generator-jekyll-utils.png?branch=master)](https://travis-ci.org/HiroAgustin/generator-jekyll-utils)
+# generator-jekyll-utils
 
 > [Yeoman](http://yeoman.io) generator
 
