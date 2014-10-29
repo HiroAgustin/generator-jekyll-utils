@@ -8,15 +8,13 @@ Install the generator by running: `npm install -g generator-jekyll-utils`.
 
 ## Usage
 
-Cd into your Jekyll directory, run this command and follow the prompts.
+Cd into your Jekyll project or your `_posts` directory, run this command and follow the prompts.
 
 ```
 yo jekyll-utils:post
 ```
 
-You can also run the command from inside the `_posts` folder.
-
-If you are using the amazing [generator-jekyllrb](https://github.com/robwierzbowski/generator-jekyllrb) you can also run it from root folder.
+If you are using the amazing [generator-jekyllrb](https://github.com/robwierzbowski/generator-jekyllrb), you can also run it from root folder.
 
 ## Going the extra mile
 
