@@ -18,7 +18,7 @@ If you are using the amazing [generator-jekyllrb](https://github.com/robwierzbow
 
 ## Going the extra mile
 
-If you want to reduce all that typing, you can add the following function to your `.functions` file like [I did](https://github.com/HiroAgustin/dotfiles/commit/962c6d2e997cb317695e4111231110f98324382d).
+If you want to reduce all that typing, you can add the following code to your `.functions` file like [I did](https://github.com/HiroAgustin/dotfiles/commit/962c6d2e997cb317695e4111231110f98324382d).
 
 ```bash
 # Yeoman Jekyll Utils
