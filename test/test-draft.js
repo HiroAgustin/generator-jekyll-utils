@@ -1,4 +1,3 @@
-/*global describe, before, it*/
 ;(function (path, yeomanGenerator, os)
 {
   'use strict';

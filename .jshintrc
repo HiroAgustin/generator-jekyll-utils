@@ -14,5 +14,13 @@
   "undef": true,
   "unused": true,
   "strict": true,
-  "laxcomma": true
+  "laxcomma": true,
+  "globals": {
+    "before": true,
+    "beforeEach": true,
+    "after": true,
+    "afterEach": true,
+    "describe": true,
+    "it": true
+  }
 }
