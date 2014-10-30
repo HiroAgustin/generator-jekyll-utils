@@ -50,12 +50,6 @@
             }
           }
         , {
-            type: 'confirm'
-          , name: 'slug'
-          , message: 'Use title as slug?'
-          , default: true
-          }
-        , {
             type: 'list'
           , name: 'layout'
           , message: 'Which layout would you like to use?'
