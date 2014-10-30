@@ -14,7 +14,11 @@ Cd into your Jekyll project and run any of the following commands:
 * `yo jekyll-utils:draft`
 * `yo jekyll-utils:page`
 
+## Options
+
 You can also write the **title** in the arguments: `yo jekyll-utils:page About Me`.
+
+Passing the `--skip-greeting` flag hides Yeoman ☹.
 
 ## Support
 

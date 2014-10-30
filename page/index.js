@@ -34,7 +34,8 @@
         , done = this.async();
 
       // Have Yeoman greet the user.
-      this.log(yosay('Creating a page? I can help with that!'));
+      if (!this.options['skip-greeting'])
+        this.log(yosay('Creating a page? I can help with that!'));
 
       this.prompt(
         [
