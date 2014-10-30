@@ -83,6 +83,42 @@
         assert.equal(content[4], '---');
       });
     });
+
+
+    describe('with categories and tags', function ()
+    {
+      before(function (done)
+      {
+        run()
+          .withArguments('My Taggy Draft')
+          .withPrompt({
+            categories: 'Cooking'
+          , tags: 'pasta, fruit'
+          })
+          .on('end', done);
+      });
+
+      it('creates the post', function ()
+      {
+        assert.file('./' + prefix + '-my-taggy-draft.md');
+      });
+
+      it('with the selected content', function ()
+      {
+        var content = readFile('./' + prefix + '-my-taggy-draft.md');
+
+        assert.equal(content[0], '---');
+        assert.equal(content[1], 'layout: post');
+        assert.equal(content[2], 'title: My Taggy Draft');
+        assert.equal(content[3].indexOf('date: ' + prefix), 0);
+        assert.equal(content[4], 'categories: ');
+        assert.equal(content[5], '- Cooking');
+        assert.equal(content[6], 'tags: ');
+        assert.equal(content[7], '- pasta');
+        assert.equal(content[8], '- fruit');
+        assert.equal(content[9], '---');
+      });
+    });
   });
 
 }(require('yeoman-generator'), require('os'), require('fs'), require('path')));

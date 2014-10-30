@@ -83,6 +83,41 @@
         assert.equal(content[4], '---');
       });
     });
+
+    describe('with categories and tags', function ()
+    {
+      before(function (done)
+      {
+        run()
+          .withArguments('My Taggy Post')
+          .withPrompt({
+            categories: 'Web Development'
+          , tags: 'js, node.js'
+          })
+          .on('end', done);
+      });
+
+      it('creates the post', function ()
+      {
+        assert.file('./' + prefix + '-my-taggy-post.md');
+      });
+
+      it('with the selected content', function ()
+      {
+        var content = readFile('./' + prefix + '-my-taggy-post.md');
+
+        assert.equal(content[0], '---');
+        assert.equal(content[1], 'layout: post');
+        assert.equal(content[2], 'title: My Taggy Post');
+        assert.equal(content[3].indexOf('date: ' + prefix), 0);
+        assert.equal(content[4], 'categories: ');
+        assert.equal(content[5], '- Web Development');
+        assert.equal(content[6], 'tags: ');
+        assert.equal(content[7], '- js');
+        assert.equal(content[8], '- node.js');
+        assert.equal(content[9], '---');
+      });
+    });
   });
 
 }(require('yeoman-generator'), require('os'), require('fs'), require('path')));

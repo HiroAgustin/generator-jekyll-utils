@@ -79,18 +79,33 @@
             , 'markdown'
             ]
           }
+        , {
+            type: 'input'
+          , name: 'categories'
+          , message: 'Do you want to add some categories?'
+          }
+        , {
+            type: 'input'
+          , name: 'tags'
+          , message: 'How about tags?'
+          }
         ]
 
       , function (props)
         {
-          var isoDate = new Date().toISOString().split('T');
+          var isoDate = new Date().toISOString().split('T')
+            , categories = props.categories
+            , tags = props.tags;
 
           this.date = isoDate[0];
           this.time = isoDate[1].split('.')[0];
 
-          this.extention = props.extention;
           this.name = name || props.name;
           this.layout = props.layout;
+          this.extention = props.extention;
+
+          this.categories = categories && categories.split(', ');
+          this.tags = tags && tags.split(', ');
 
           done();
 
