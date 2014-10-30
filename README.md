@@ -8,7 +8,7 @@ Install the generator by running: `npm install -g generator-jekyll-utils`.
 
 ## Usage
 
-Cd into your Jekyll project and run any of the following commands:
+`cd` into your Jekyll project and run any of the following commands:
 
 * `yo jekyll-utils:post`
 * `yo jekyll-utils:draft`
@@ -16,9 +16,9 @@ Cd into your Jekyll project and run any of the following commands:
 
 ## Options
 
-You can also write the **title** in the arguments: `yo jekyll-utils:page About Me`.
+Write the *TITLE* in the arguments: `yo jekyll-utils:page About Me`.
 
-Passing the `--skip-greeting` flag hides Yeoman ☹.
+Use the `--skip-greeting` flag to hide Yeoman ☹.
 
 ## Support
 
@@ -26,7 +26,7 @@ If you are using the amazing [generator-jekyllrb](https://github.com/robwierzbow
 
 ## Shortcut
 
-If you want to reduce typing you can add the following code to your `.functions` file like [I did](https://github.com/HiroAgustin/dotfiles/commit/962c6d2e997cb317695e4111231110f98324382d).
+You can reduce the typing by adding the following code to your `.functions` file like [I did](https://github.com/HiroAgustin/dotfiles/commit/962c6d2e997cb317695e4111231110f98324382d).
 
 ```bash
 # Yeoman Jekyll Utils
