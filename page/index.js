@@ -63,7 +63,7 @@
               return fs.readdirSync(path.join(root, '_layouts')).map(function (name)
               {
                 return name.split('.')[0];
-              });
+              }).concat('null');
             }
           }
         , {
