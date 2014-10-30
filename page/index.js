@@ -25,6 +25,8 @@
 
       if (fs.existsSync(path.join(onApp, '_layouts')))
         return onApp;
+
+      return cwd;
     }
 
   , prompting: function ()

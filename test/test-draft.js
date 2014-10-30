@@ -8,11 +8,7 @@
   function run ()
   {
     return helpers.run(path.join(__dirname, '../draft'))
-      .inDir(path.join(os.tmpdir(), './temp-test'), function (dir)
-      {
-        fs.mkdirSync(path.join(dir, './_layouts'));
-        fs.mkdirSync(path.join(dir, './_drafts'));
-      })
+      .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({
         'skip-greeting': true
       });
