@@ -33,8 +33,6 @@
         run()
           .withPrompt({
             name: 'My Awesome Draft'
-          , layout: 'post'
-          , extention: 'md'
           })
           .on('end', done);
       });
