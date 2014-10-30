@@ -14,7 +14,7 @@ Cd into your Jekyll project and run any of the following commands:
 * `yo jekyll-utils:draft`
 * `yo jekyll-utils:page`
 
-You can also pass the *title* as an argument: `yo jekyll-utils:page About Me`.
+You can also write **title** in the arguments: `yo jekyll-utils:page About Me`.
 
 ## Support
 
