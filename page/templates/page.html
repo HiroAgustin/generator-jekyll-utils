@@ -1,0 +1,5 @@
+---
+layout: <%= layout %>
+title: <%= name %><% if (!isFolder) { %>
+permalink: /<%= _.slugify(name) %>/<% } %>
+---

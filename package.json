@@ -27,7 +27,8 @@
   "files": [
     "app",
     "post",
-    "draft"
+    "draft",
+    "page"
   ],
   "keywords": [
     "yeoman-generator",
