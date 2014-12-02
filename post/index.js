@@ -97,7 +97,7 @@
           this.date = isoDate[0];
           this.time = isoDate[1].split('.')[0];
 
-          this.name = name || props.name;
+          this.name = this._.titleize(name || props.name);
           this.layout = props.layout;
           this.extention = props.extention;
 

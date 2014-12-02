@@ -90,7 +90,7 @@
       , function (props)
         {
           this.extention = props.extention;
-          this.name = name || props.name;
+          this.name = this._.titleize(name || props.name);
           this.layout = props.layout;
 
           this.isFolder = props.isFolder;
