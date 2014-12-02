@@ -34,8 +34,11 @@
   , prompting: function ()
     {
       var name = this.name
-        , root = this.root
-        , done = this.async();
+        , done = this.async()
+        , layouts = fs.readdirSync(path.join(this.root, '_layouts')).map(function (name)
+          {
+            return name.split('.')[0];
+          });
 
       // Have Yeoman greet the user.
       if (!this.options['skip-greeting'])
@@ -57,13 +60,7 @@
           , name: 'layout'
           , message: 'Which layout would you like to use?'
           , default: 'post'
-          , choices: function ()
-            {
-              return fs.readdirSync(path.join(root, '_layouts')).map(function (name)
-              {
-                return name.split('.')[0];
-              }).concat('null');
-            }
+          , choices: layouts.concat('null')
           }
         , {
             type: 'list'

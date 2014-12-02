@@ -1,6 +1,6 @@
 {
   "name": "generator-jekyll-utils",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Include Yeoman into your Jekyll workflow",
   "license": "MIT",
   "main": "app/index.js",
@@ -25,10 +25,9 @@
     "test": "mocha"
   },
   "files": [
-    "app",
-    "post",
     "draft",
-    "page"
+    "page",
+    "post"
   ],
   "keywords": [
     "yeoman-generator",
