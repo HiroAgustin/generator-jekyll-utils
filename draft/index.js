@@ -6,16 +6,17 @@
 
     initializing: function ()
     {
+      this.cwd = process.cwd();
       this.root = this.getRootPath();
 
-      this.destinationRoot(path.join(this.root, '_drafts'));
+      this.destinationRoot(path.join(this.root || this.cwd, '_drafts'));
 
       this.name = Array.prototype.join.call(arguments, ' ');
     }
 
   , getRootPath: function ()
     {
-      var cwd = process.cwd()
+      var cwd = this.cwd
         , oneUp = path.join(cwd, '..')
         , onApp = path.join(cwd, 'app');
 
@@ -27,18 +28,26 @@
 
       if (fs.existsSync(path.join(onApp, '_layouts')))
         return onApp;
+    }
 
-      return cwd;
+  , getLayouts: function ()
+    {
+      var layouts = [];
+
+      if (this.root)
+        layouts = fs.readdirSync(path.join(this.root, '_layouts'));
+
+      return layouts.map(function (name)
+      {
+        return name.split('.')[0];
+      });
     }
 
   , prompting: function ()
     {
       var name = this.name
         , done = this.async()
-        , layouts = fs.readdirSync(path.join(this.root, '_layouts')).map(function (name)
-          {
-            return name.split('.')[0];
-          });
+        , layouts = this.getLayouts();
 
       // Have Yeoman greet the user.
       if (!this.options['skip-greeting'])
