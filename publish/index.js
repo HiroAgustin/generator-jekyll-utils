@@ -99,7 +99,7 @@
     // TODO: This sucks!
   , writing: function ()
     {
-      var source = path.join(this.root, '_drafts', this.draft)
+      var source = path.join(this.root || this.cwd, '_drafts', this.draft)
         , lines = this.readFileAsString(source).split('\n');
 
       lines[2] = 'title: ' + this.name;
@@ -108,7 +108,7 @@
       this.writeFileFromString(lines.join('\n'), source);
 
       fs.renameSync(source
-      , path.join(this.root, '_posts', this.date + '-' + this._.slugify(this.name) + '.' + this.extention)
+      , path.join(this.root || this.cwd, '_posts', this.date + '-' + this._.slugify(this.name) + '.' + this.extention)
       );
     }
   });
