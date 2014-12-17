@@ -10,9 +10,11 @@ Install the generator by running: `npm install -g generator-jekyll-utils`.
 
 `cd` into your Jekyll project and run any of the following commands:
 
-* `yo jekyll-utils:post`
 * `yo jekyll-utils:draft`
+* `yo jekyll-utils:post`
 * `yo jekyll-utils:page`
+
+To turn a draft into a post, run `yo jekyll-utils:publish`. This will update the date and prompt to change the title.
 
 ## Options
 
