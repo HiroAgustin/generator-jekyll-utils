@@ -6,6 +6,7 @@
 
     initializing: function ()
     {
+      this.cwd = process.cwd();
       this.root = this.getRootPath();
 
       this.name = Array.prototype.join.call(arguments, ' ');
@@ -13,7 +14,7 @@
 
   , getRootPath: function ()
     {
-      var cwd = process.cwd()
+      var cwd = this.cwd
         , oneUp = path.join(cwd, '..')
         , onApp = path.join(cwd, 'app');
 
@@ -25,18 +26,26 @@
 
       if (fs.existsSync(path.join(onApp, '_layouts')))
         return onApp;
+    }
 
-      return cwd;
+  , getLayouts: function ()
+    {
+      var layouts = [];
+
+      if (this.root)
+        layouts = fs.readdirSync(path.join(this.root, '_layouts'));
+
+      return layouts.map(function (name)
+      {
+        return name.split('.')[0];
+      });
     }
 
   , prompting: function ()
     {
       var name = this.name
         , done = this.async()
-        , layouts = fs.readdirSync(path.join(this.root, '_layouts')).map(function (name)
-          {
-            return name.split('.')[0];
-          });
+        , layouts = this.getLayouts();
 
       // Have Yeoman greet the user.
       if (!this.options['skip-greeting'])
@@ -52,12 +61,6 @@
             {
               return !name;
             }
-          }
-        , {
-            type: 'confirm'
-          , name: 'isFolder'
-          , message: 'Should it be inside a folder?'
-          , default: true
           }
         , {
             type: 'list'
@@ -89,11 +92,9 @@
 
       , function (props)
         {
-          this.extention = props.extention;
           this.name = this._.titleize(name || props.name);
+          this.extention = props.extention;
           this.layout = props.layout;
-
-          this.isFolder = props.isFolder;
 
           done();
 
@@ -103,18 +104,9 @@
 
   , writing: function ()
     {
-      if (this.isFolder)
-      {
-        this.destinationRoot(path.join(this.root, this._.slugify(this.name)));
+      this.destinationRoot(path.join(this.root || this.cwd, this._.slugify(this.name)));
 
-        this.template('page.html', 'index.html');
-      }
-      else
-      {
-        this.destinationRoot(this.root);
-
-        this.template('page.html', this._.slugify(this.name) + '.' + this.extention);
-      }
+      this.template('page.html', 'index.' + this.extention);
     }
   });
 

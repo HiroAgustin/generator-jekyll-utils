@@ -58,8 +58,7 @@
         run()
           .withArguments('Contact Me')
           .withPrompt({
-            isFolder: false
-          , layout: 'default'
+            layout: 'default'
           , extention: 'md'
           })
           .on('end', done);
@@ -67,18 +66,18 @@
 
       it('creates the page', function ()
       {
-        assert.file('./contact-me.md');
+        assert.equal(process.cwd().split(path.sep).pop(), 'contact-me');
+        assert.file('./index.md');
       });
 
       it('with the selected content', function ()
       {
-        var content = readFile('./contact-me.md');
+        var content = readFile('./index.md');
 
         assert.equal(content[0], '---');
         assert.equal(content[1], 'layout: default');
         assert.equal(content[2], 'title: Contact Me');
-        assert.equal(content[3], 'permalink: /contact-me/');
-        assert.equal(content[4], '---');
+        assert.equal(content[3], '---');
       });
     });
   });
